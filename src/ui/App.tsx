@@ -19,6 +19,7 @@ import "./app.css";
 export function App() {
   const screen = useGame((s) => s.screen);
   const battle = useGame((s) => s.battle);
+  const battleKey = useGame((s) => s.battleKey);
   const sound = useGame((s) => s.save.settings.sound);
   const seenIntro = useGame((s) => s.save.seenIntro);
 
@@ -47,7 +48,7 @@ export function App() {
             <BottomNav onNav={() => sfx.nav()} />
           </>
         )}
-        {battle && <BattleScreen />}
+        {battle && <BattleScreen key={battleKey} />}
       </div>
 
       {!seenIntro && <IntroOverlay />}

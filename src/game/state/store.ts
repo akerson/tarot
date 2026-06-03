@@ -88,6 +88,7 @@ export type Screen = "climb" | "roster" | "summon" | "daily" | "codex" | "help";
 interface GameState {
   save: Save;
   // runtime
+  battleKey: number;
   battle: BattleState | null;
   battleCtx: RuntimeBattle | null;
   selectedAbility: string | null;
@@ -174,6 +175,7 @@ export const useGame = create<GameState>()(
   persist(
     (set, get) => ({
       save: freshSave(),
+      battleKey: 0,
       battle: null,
       battleCtx: null,
       selectedAbility: null,
@@ -348,7 +350,7 @@ export const useGame = create<GameState>()(
         const enemies = buildEnemyParty(floorDef.enemies);
         const seed = (Date.now() ^ (floorDef.index * 99991)) >>> 0;
         const battle = initBattle(party, enemies, floorDef.index, seed);
-        set({ battle, battleCtx: { kind, floor: floorDef, rewardGranted: false }, selectedAbility: null, lastReward: null });
+        set({ battleKey: get().battleKey + 1, battle, battleCtx: { kind, floor: floorDef, rewardGranted: false }, selectedAbility: null, lastReward: null });
       },
 
       selectAbility: (id) => set({ selectedAbility: id }),
