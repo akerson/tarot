@@ -1,0 +1,51 @@
+.detail-scrim { position: fixed; inset: 0; z-index: 70; background: rgba(4,2,10,.82); backdrop-filter: blur(8px); display: flex; justify-content: center; animation: fadeIn 0.25s ease; }
+.detail-sheet {
+  width: 100%; max-width: 460px; height: 100%; overflow-y: auto; padding: 20px 16px calc(40px + var(--safe-bottom));
+  padding-top: calc(20px + var(--safe-top)); background: linear-gradient(180deg, #150c2e, #0a0617);
+  border-left: 1px solid var(--stroke); border-right: 1px solid var(--stroke); position: relative;
+  animation: fadeIn 0.3s ease; scrollbar-width: none;
+}
+.detail-sheet::-webkit-scrollbar { display: none; }
+.detail-close { position: absolute; top: calc(14px + var(--safe-top)); right: 14px; z-index: 5; width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,.08); border: 1px solid var(--stroke); font-size: 16px; }
+
+.detail-hero { display: flex; gap: 14px; margin-bottom: 12px; }
+.detail-card { width: 130px; flex-shrink: 0; }
+.detail-head { flex: 1; min-width: 0; }
+.detail-name { font-size: 23px; line-height: 1.05; }
+.detail-arcana { font-size: 12px; color: var(--neon-violet); font-weight: 600; margin-top: 2px; }
+.detail-stars { margin-top: 8px; letter-spacing: 2px; color: rgba(255,255,255,.15); font-size: 14px; }
+.detail-stars .on { color: var(--neon-gold); text-shadow: 0 0 8px var(--neon-gold); }
+.detail-key { font-size: 12px; color: var(--ink-dim); line-height: 1.4; margin: 8px 0 0; }
+.detail-elem-note { text-align: center; margin: 4px 0 12px; font-weight: 600; }
+
+.detail-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 16px; }
+.stat-box { background: var(--panel); border: 1px solid var(--stroke); border-radius: 12px; padding: 10px 4px; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.stat-ico { font-size: 14px; }
+.stat-val { font-size: 15px; font-weight: 800; }
+.stat-lbl { letter-spacing: 1px; }
+
+.detail-upgrade { padding: 14px; margin-bottom: 16px; }
+.shard-bar { height: 6px; border-radius: 3px; background: rgba(0,0,0,.4); overflow: hidden; margin-top: 10px; }
+.shard-fill { height: 100%; background: linear-gradient(90deg, var(--neon-gold), var(--neon-magenta)); transition: width 0.3s; }
+
+.detail-section-label { font-size: 10px; font-weight: 800; letter-spacing: 1.5px; color: var(--ink-faint); margin: 4px 2px 10px; }
+.gear-slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 18px; }
+.gear-slot { aspect-ratio: 1; border-radius: 12px; border: 1.5px dashed var(--stroke); background: var(--panel); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+.gear-slot.filled { border-style: solid; border-color: var(--stroke-strong); }
+.gear-ico { font-size: 24px; filter: drop-shadow(0 0 6px currentColor); }
+.gear-nm { text-align: center; line-height: 1.1; }
+.gear-plus { font-size: 26px; color: var(--ink-faint); }
+
+.detail-abilities { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+.ability-row { display: flex; gap: 12px; align-items: flex-start; padding: 10px 12px; background: var(--panel); border: 1px solid var(--stroke); border-radius: 12px; }
+.ability-row-ico { font-size: 22px; }
+.ability-tags { display: flex; gap: 4px; }
+.atag { font-size: 9px; font-weight: 700; padding: 2px 6px; border-radius: 5px; background: rgba(176,107,255,.18); color: #d8c8ff; text-transform: uppercase; }
+.atag.cd { background: rgba(255,94,196,.18); color: #ffc2e6; }
+
+.passive-row { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; background: rgba(176,107,255,.08); border: 1px solid var(--stroke-strong); border-radius: 12px; margin-bottom: 8px; }
+.passive-ico { color: var(--neon-violet); font-size: 16px; }
+
+.detail-flavor { text-align: center; font-style: italic; color: var(--ink-faint); font-size: 12px; margin: 18px 0 0; }
+
+.gear-pick-row { display: flex; gap: 12px; align-items: center; padding: 10px 12px; background: var(--panel); border: 1px solid var(--stroke); border-radius: 12px; }

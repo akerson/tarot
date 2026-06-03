@@ -1,0 +1,18 @@
+.intro-scrim {
+  position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center;
+  padding: 28px; background: radial-gradient(circle at 50% 30%, #1a1038, #06040d 80%);
+}
+.intro-card { width: 100%; max-width: 360px; text-align: center; }
+.intro-glyph { font-size: 64px; filter: drop-shadow(0 0 24px var(--neon-violet)); animation: glowPulse 3s ease-in-out infinite; }
+.intro-title {
+  font-size: 30px; margin: 14px 0 12px;
+  background: linear-gradient(120deg, var(--neon-violet), var(--neon-cyan), var(--neon-magenta));
+  background-size: 200%; -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+.intro-body { color: var(--ink-dim); font-size: 15px; line-height: 1.6; margin-bottom: 22px; }
+.intro-dots { display: flex; gap: 8px; justify-content: center; margin-bottom: 22px; }
+.intro-dots span { width: 8px; height: 8px; border-radius: 50%; background: var(--stroke-strong); transition: all .2s; }
+.intro-dots span.on { background: var(--neon-violet); box-shadow: 0 0 10px var(--neon-violet); width: 22px; border-radius: 4px; }
+.intro-btn { width: 100%; padding: 15px; font-size: 16px; }
+.intro-skip { margin-top: 14px; color: var(--ink-faint); font-size: 13px; }

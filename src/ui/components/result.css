@@ -1,0 +1,31 @@
+.result-scrim {
+  position: absolute; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center;
+  padding: 24px; background: rgba(4,2,10,.8); backdrop-filter: blur(8px); animation: fadeIn 0.4s ease;
+}
+.result-card {
+  position: relative; width: 100%; max-width: 360px; padding: 26px 22px; text-align: center; overflow: hidden;
+  border-radius: 22px; background: linear-gradient(165deg, #1c1140, #0b0720);
+  border: 1px solid var(--stroke-strong); box-shadow: 0 24px 70px rgba(0,0,0,.65);
+}
+.result-card.win { border-color: var(--neon-gold); box-shadow: 0 24px 70px rgba(0,0,0,.65), 0 0 40px rgba(255,212,94,.2); }
+.result-card.lose { border-color: var(--neon-red); }
+.result-rays {
+  position: absolute; inset: -40%; opacity: 0.35; pointer-events: none;
+  background: conic-gradient(from 0deg, transparent, rgba(255,212,94,.3) 10%, transparent 20%, rgba(176,107,255,.3) 30%, transparent 40%);
+  animation: spinSlow 28s linear infinite;
+}
+.result-card.lose .result-rays { background: conic-gradient(from 0deg, transparent, rgba(255,93,108,.25) 12%, transparent 24%); }
+.result-emblem { position: relative; font-size: 48px; filter: drop-shadow(0 0 18px var(--neon-gold)); animation: glowPulse 2s ease-in-out infinite; }
+.result-card.lose .result-emblem { filter: drop-shadow(0 0 18px var(--neon-red)); }
+.result-title { position: relative; font-size: 30px; margin: 6px 0 8px;
+  background: linear-gradient(120deg, var(--neon-gold), var(--neon-magenta)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.result-card.lose .result-title { background: linear-gradient(120deg, #ff8a94, #ff5d6c); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.result-sub { position: relative; font-size: 13px; line-height: 1.5; margin-bottom: 16px; }
+
+.result-rewards { position: relative; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 16px; }
+.result-chip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; font-size: 13px; font-weight: 700; background: rgba(255,255,255,.06); border: 1px solid var(--stroke); }
+.result-chip.gold { border-color: var(--neon-gold); color: var(--neon-gold); box-shadow: 0 0 12px rgba(255,212,94,.3); }
+.result-unlock-note { position: relative; font-size: 11px; color: var(--neon-cyan); margin-bottom: 14px; }
+
+.result-actions { position: relative; display: flex; flex-direction: column; gap: 10px; }
+.result-actions .btn-primary, .result-actions .btn-gold { padding: 14px; font-size: 16px; }

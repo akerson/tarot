@@ -1,0 +1,37 @@
+.reading-scrim {
+  position: fixed; inset: 0; z-index: 80; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 18px; padding: 24px; background: radial-gradient(circle at 50% 40%, #1d1142, #05030c 75%);
+  animation: fadeIn 0.3s ease;
+}
+.reading-rays {
+  position: absolute; inset: 0; pointer-events: none; opacity: 0.5;
+  background: conic-gradient(from 0deg at 50% 45%, transparent, rgba(176,107,255,.18) 8%, transparent 16%, rgba(47,240,255,.16) 24%, transparent 32%, rgba(255,94,196,.16) 40%, transparent 48%, rgba(176,107,255,.18) 56%, transparent 64%);
+  animation: spinSlow 40s linear infinite;
+}
+.reading-head { font-size: 26px; z-index: 1;
+  background: linear-gradient(120deg, var(--neon-gold), var(--neon-magenta)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+.reading-grid { display: grid; gap: 10px; z-index: 1; perspective: 1000px; width: 100%; justify-content: center; }
+.reading-grid.count-1 { grid-template-columns: 150px; max-width: 230px; }
+.reading-grid.count-10 { grid-template-columns: repeat(5, 1fr); max-width: 460px; }
+
+.reading-slot { aspect-ratio: 2/3; transform-style: preserve-3d; }
+.reading-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(.3,.8,.3,1.1); }
+.reading-slot.flipped .reading-inner { transform: rotateY(180deg); }
+.reading-back, .reading-front {
+  position: absolute; inset: 0; backface-visibility: hidden; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+}
+.reading-back {
+  background: linear-gradient(160deg, #2a1a55, #120a26);
+  border: 1px solid var(--stroke-strong); font-size: 26px; color: var(--neon-violet);
+  box-shadow: inset 0 0 18px rgba(176,107,255,.3); animation: glowPulse 2.5s ease-in-out infinite;
+}
+.reading-front { transform: rotateY(180deg); flex-direction: column; gap: 4px; }
+.reading-shards { font-size: 10px; color: var(--neon-cyan); font-weight: 700; }
+
+.reading-slot.rar-legendary .reading-front { filter: drop-shadow(0 0 14px var(--r-legendary)); }
+.reading-slot.rar-mythic .reading-front { filter: drop-shadow(0 0 18px var(--r-mythic)); animation: glowPulse 1.4s ease-in-out infinite; }
+
+.reading-actions { display: flex; gap: 12px; z-index: 1; }
+.reading-actions .btn { min-width: 120px; }

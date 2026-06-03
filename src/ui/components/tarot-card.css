@@ -1,0 +1,127 @@
+/* Procedural neon tarot card */
+.tcard {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  border-radius: 14px;
+  overflow: hidden;
+  isolation: isolate;
+  display: block;
+  padding: 0;
+  color: var(--ink);
+  transition: transform 0.12s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(0, 0, 0, 0.4);
+  width: 100%;
+}
+.tcard-xs { width: 64px; border-radius: 10px; }
+.tcard-sm { width: 96px; }
+.tcard-lg { width: 100%; max-width: 300px; border-radius: 20px; }
+
+.tcard:active { transform: scale(0.97); }
+.tcard.is-selected {
+  box-shadow: 0 0 0 2px var(--rarity), 0 0 26px color-mix(in srgb, var(--rarity) 60%, transparent);
+  transform: translateY(-3px);
+}
+.tcard.is-dim { filter: grayscale(0.7) brightness(0.7); }
+.tcard.is-locked .tcard-sigil { filter: grayscale(1) brightness(0.4); }
+
+.tcard-bg {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(120% 90% at 50% 0%, color-mix(in srgb, var(--c2) 55%, transparent), transparent 60%),
+    radial-gradient(120% 90% at 50% 120%, color-mix(in srgb, var(--c1) 45%, transparent), transparent 55%),
+    linear-gradient(160deg, #160d2e, #0a0617 70%);
+}
+.tcard-foil {
+  position: absolute; inset: 0; z-index: 1; mix-blend-mode: screen; opacity: 0.5;
+  background: linear-gradient(115deg, transparent 30%, color-mix(in srgb, var(--c2) 70%, white) 48%, transparent 60%);
+  background-size: 250% 250%;
+  animation: shimmer 6s linear infinite;
+  pointer-events: none;
+}
+.tcard-frame {
+  position: absolute; inset: 4px; z-index: 3; border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--c2) 60%, transparent);
+  box-shadow: inset 0 0 14px color-mix(in srgb, var(--c1) 30%, transparent),
+              inset 0 0 0 3px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+}
+.tcard-frame::before, .tcard-frame::after {
+  content: ""; position: absolute; width: 14px; height: 14px;
+  border: 1.5px solid var(--rarity); opacity: 0.85;
+}
+.tcard-frame::before { top: 4px; left: 4px; border-right: none; border-bottom: none; }
+.tcard-frame::after { bottom: 4px; right: 4px; border-left: none; border-top: none; }
+
+.tcard-top {
+  position: absolute; top: 9px; left: 11px; right: 11px; z-index: 4;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.tcard-numeral {
+  font-family: var(--font-deco); font-weight: 700; font-size: 11px;
+  letter-spacing: 1px; color: var(--rarity); text-shadow: 0 0 8px var(--rarity);
+}
+.tcard-elem { font-size: 15px; filter: drop-shadow(0 0 6px currentColor); }
+.tcard-xs .tcard-elem { font-size: 11px; }
+
+.tcard-art {
+  position: absolute; inset: 0; z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+}
+.tcard-sigil { position: absolute; display: flex; align-items: center; justify-content: center; animation: spinSlow 90s linear infinite; }
+.tcard-bignum {
+  position: relative; z-index: 1;
+  font-family: var(--font-deco); font-weight: 900;
+  font-size: clamp(28px, 16cqw, 60px);
+  color: transparent;
+  background: linear-gradient(160deg, #fff, color-mix(in srgb, var(--c2) 80%, white));
+  -webkit-background-clip: text; background-clip: text;
+  text-shadow: none;
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--c2) 70%, transparent));
+  opacity: 0.96;
+}
+.tcard-lg .tcard-bignum { font-size: 72px; }
+.tcard-md .tcard-bignum { font-size: 44px; }
+.tcard-sm .tcard-bignum { font-size: 30px; }
+.tcard-xs .tcard-bignum { font-size: 20px; }
+.tcard-lock { position: absolute; z-index: 3; font-size: 26px; filter: drop-shadow(0 0 8px #000); }
+
+.tcard-name-plate {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 4;
+  padding: 14px 10px 9px; text-align: center;
+  background: linear-gradient(0deg, rgba(6, 4, 13, 0.92), rgba(6, 4, 13, 0.5) 60%, transparent);
+}
+.tcard-name {
+  font-size: 13px; font-weight: 700; line-height: 1.1;
+  color: #fff; text-shadow: 0 1px 6px rgba(0, 0, 0, 0.9);
+}
+.tcard-lg .tcard-name { font-size: 19px; }
+.tcard-sm .tcard-name { font-size: 10.5px; }
+.tcard-xs .tcard-name { font-size: 8px; padding: 0; }
+.tcard-title { font-size: 9px; color: var(--ink-dim); margin-top: 2px; letter-spacing: 0.3px; }
+.tcard-lg .tcard-title { font-size: 12px; }
+
+.tcard-gems {
+  position: absolute; top: 28px; left: 0; right: 0; z-index: 4;
+  display: flex; justify-content: center; gap: 3px;
+}
+.tcard-gem {
+  width: 5px; height: 5px; transform: rotate(45deg); border-radius: 1px;
+  box-shadow: 0 0 6px currentColor;
+}
+.tcard-xs .tcard-gems { display: none; }
+
+.tcard-lvl {
+  position: absolute; top: 8px; left: 50%; transform: translateX(-50%); z-index: 5;
+  display: none;
+}
+.tcard-lg .tcard-lvl, .tcard-md .tcard-lvl {
+  display: flex; gap: 6px; bottom: 42px; top: auto;
+  font-size: 11px; font-weight: 700; align-items: center;
+}
+.tcard-stars { color: var(--neon-gold); text-shadow: 0 0 8px var(--neon-gold); font-size: 10px; }
+
+.tcard-badge {
+  position: absolute; top: 7px; right: 7px; z-index: 6;
+  padding: 2px 7px; border-radius: 999px; font-size: 10px; font-weight: 800;
+  background: var(--neon-magenta); color: #fff; box-shadow: 0 0 10px var(--neon-magenta);
+}

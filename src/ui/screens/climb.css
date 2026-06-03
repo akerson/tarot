@@ -1,0 +1,60 @@
+.climb-power { display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+.climb-power strong { font-size: 19px; }
+
+.focus-floor { padding: 18px; position: relative; overflow: hidden; }
+.focus-floor::before {
+  content: ""; position: absolute; inset: 0; opacity: 0.5; pointer-events: none;
+  background: radial-gradient(120% 60% at 50% 0%, rgba(176,107,255,.18), transparent 60%);
+}
+.focus-floor.is-boss { border-color: var(--neon-red); box-shadow: 0 0 30px rgba(255,93,108,.25); }
+.focus-floor.is-boss::before { background: radial-gradient(120% 60% at 50% 0%, rgba(255,93,108,.22), transparent 60%); }
+
+.focus-tag { font-size: 11px; font-weight: 800; letter-spacing: 2px; color: var(--neon-violet); text-align: center; }
+.focus-floor.is-boss .focus-tag { color: var(--neon-red); }
+.focus-name { font-size: 28px; text-align: center; margin: 4px 0 14px; }
+
+.focus-threats { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 14px; }
+.threat-chip {
+  font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 999px;
+  background: rgba(255,255,255,.06); border: 1px solid var(--stroke); color: var(--ink-dim);
+}
+.threat-chip.danger { background: rgba(255,93,108,.16); border-color: var(--neon-red); color: #ffb3ba; }
+
+.focus-demands { background: rgba(176,107,255,.08); border: 1px dashed var(--stroke-strong); border-radius: 12px; padding: 10px 12px; margin-bottom: 14px; display: flex; flex-direction: column; gap: 6px; }
+.demand-chip { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 8px; background: rgba(176,107,255,.16); color: #e3d4ff; }
+
+.focus-enemies { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 14px; }
+.enemy-pip {
+  display: flex; flex-direction: column; align-items: center; gap: 1px; min-width: 54px;
+  padding: 7px 6px; border-radius: 10px; background: rgba(8,5,18,.5); border: 1px solid var(--stroke);
+}
+.enemy-pip.back { border-style: dashed; opacity: 0.85; }
+.enemy-el { font-size: 16px; filter: drop-shadow(0 0 5px currentColor); }
+.enemy-nm { font-size: 10px; font-weight: 600; color: var(--ink-dim); }
+.enemy-lv { font-size: 9px; color: var(--ink-faint); }
+
+.focus-rule { font-style: italic; font-size: 12px; color: var(--neon-cyan); text-align: center; margin-bottom: 8px; opacity: 0.9; }
+.focus-hint { font-size: 13px; line-height: 1.5; color: var(--ink-dim); text-align: center; margin: 0 0 14px; }
+.focus-warn { text-align: center; color: var(--neon-gold); font-size: 12px; font-weight: 700; margin-bottom: 8px; }
+
+.focus-actions { display: flex; gap: 10px; }
+.focus-go { flex: 1; padding: 15px; font-size: 16px; }
+
+/* Tower rail */
+.climb-rail { display: flex; flex-direction: column-reverse; gap: 7px; margin-top: 20px; }
+.rail-node {
+  display: flex; align-items: center; gap: 10px; padding: 11px 14px; border-radius: 12px;
+  background: var(--panel); border: 1px solid var(--stroke); text-align: left; position: relative;
+}
+.rail-node.locked { opacity: 0.4; }
+.rail-node.current { border-color: var(--neon-violet); box-shadow: 0 0 16px rgba(176,107,255,.3); background: rgba(176,107,255,.12); }
+.rail-node.cleared { opacity: 0.8; }
+.rail-node.boss .rail-idx { color: var(--neon-red); }
+.rail-idx { font-family: var(--font-deco); font-weight: 900; font-size: 16px; color: var(--neon-cyan); min-width: 26px; }
+.rail-name { flex: 1; font-size: 14px; font-weight: 600; }
+.rail-boss { font-size: 9px; font-weight: 800; color: var(--neon-red); letter-spacing: 1px; }
+.rail-check { color: var(--neon-green); font-weight: 800; }
+.rail-here { color: var(--neon-violet); }
+
+.climb-victory { padding: 24px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.climb-victory h2 { font-size: 24px; color: var(--neon-gold); }
