@@ -8,6 +8,7 @@ import { RosterScreen } from "./screens/RosterScreen";
 import { SummonScreen } from "./screens/SummonScreen";
 import { DailyScreen } from "./screens/DailyScreen";
 import { CodexScreen } from "./screens/CodexScreen";
+import { HelpScreen } from "./screens/HelpScreen";
 import { BattleScreen } from "./screens/BattleScreen";
 import { IdleModal } from "./components/IdleModal";
 import { RewardModal } from "./components/RewardModal";
@@ -41,6 +42,7 @@ export function App() {
               {screen === "summon" && <SummonScreen />}
               {screen === "daily" && <DailyScreen />}
               {screen === "codex" && <CodexScreen />}
+              {screen === "help" && <HelpScreen />}
             </div>
             <BottomNav onNav={() => sfx.nav()} />
           </>

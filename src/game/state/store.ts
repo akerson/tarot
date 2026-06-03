@@ -83,7 +83,7 @@ export interface RewardSummary {
   bestScore?: number;
 }
 
-export type Screen = "climb" | "roster" | "summon" | "daily" | "codex";
+export type Screen = "climb" | "roster" | "summon" | "daily" | "codex" | "help";
 
 interface GameState {
   save: Save;

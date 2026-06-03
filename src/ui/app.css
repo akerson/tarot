@@ -19,6 +19,14 @@
 }
 .cur-chip .ico { font-size: 13px; filter: drop-shadow(0 0 5px currentColor); }
 .cur-dust { color: var(--neon-cyan); } .cur-aether { color: var(--neon-magenta); }
+.topbar-help {
+  display: flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: rgba(255,255,255,.07); border: 1px solid var(--stroke);
+  font-size: 14px; font-weight: 900; color: var(--ink-dim);
+  transition: color 0.15s, background 0.15s;
+}
+.topbar-help.active, .topbar-help:hover { color: var(--neon-violet); background: rgba(176,107,255,.15); border-color: var(--neon-violet); }
 
 /* Bottom nav */
 .bottomnav {

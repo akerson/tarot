@@ -1,0 +1,172 @@
+.help-screen { gap: 8px; }
+
+/* Accordion section */
+.help-section {
+  padding: 0;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+.help-section.open {
+  box-shadow: 0 0 0 1px var(--stroke-strong), var(--shadow-glow);
+}
+
+.help-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 14px;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+}
+.help-icon { font-size: 18px; width: 24px; text-align: center; }
+.help-title { flex: 1; font-family: var(--font-display); font-size: 15px; font-weight: 700; }
+.help-caret { font-size: 10px; color: var(--ink-faint); }
+
+.help-body {
+  padding: 0 14px 16px;
+  border-top: 1px solid var(--stroke);
+  animation: fadeIn 0.2s ease;
+}
+
+/* Content building blocks */
+.help-content { display: flex; flex-direction: column; gap: 12px; padding-top: 12px; }
+
+.help-p { font-size: 13px; line-height: 1.6; color: var(--ink-dim); margin: 0; }
+.help-p strong { color: var(--ink); }
+.help-p em { color: var(--ink-dim); font-style: italic; }
+
+.help-rule {
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--stroke);
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.help-rule-head {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--neon-violet);
+  text-transform: uppercase;
+}
+
+.help-list {
+  margin: 0;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.help-list li {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-dim);
+}
+.help-list li strong { color: var(--ink); }
+
+/* Cover diagram */
+.cover-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  padding: 8px 0;
+}
+.cover-row { display: flex; gap: 6px; }
+.cover-slot {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 8px;
+  letter-spacing: 0.5px;
+}
+.cover-slot.front { background: rgba(176,107,255,.2); border: 1px solid var(--neon-violet); color: var(--neon-violet); }
+.cover-slot.back  { background: rgba(47,240,255,.1);  border: 1px solid rgba(47,240,255,.4); color: var(--neon-cyan); }
+.cover-label { font-size: 11px; color: var(--ink-faint); margin-top: 2px; text-align: center; }
+
+/* Element wheel */
+.elem-wheel {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.elem-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.elem-pill {
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid;
+  border-radius: 999px;
+  padding: 4px 10px;
+  white-space: nowrap;
+  min-width: 90px;
+  text-align: center;
+}
+.elem-arrow {
+  font-size: 11px;
+  white-space: nowrap;
+  opacity: 0.7;
+}
+
+/* Chips */
+.help-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.help-chip {
+  flex: 1;
+  min-width: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid;
+}
+.chip-label { font-size: 10px; font-weight: 700; letter-spacing: 0.5px; color: var(--ink-dim); text-transform: uppercase; }
+.chip-value { font-size: 16px; font-weight: 900; }
+
+/* Role list */
+.role-list { display: flex; flex-direction: column; gap: 8px; }
+.role-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--stroke);
+}
+.role-ico { font-size: 22px; line-height: 1; flex-shrink: 0; padding-top: 2px; }
+.role-body { display: flex; flex-direction: column; gap: 3px; }
+.role-name { font-size: 13px; font-weight: 700; color: var(--ink); }
+.role-desc { line-height: 1.5; }
+
+/* Mini table */
+.help-table {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--stroke);
+}
+.htrow {
+  display: grid;
+  grid-template-columns: 1.1fr 1.1fr 1.4fr;
+  gap: 4px;
+  padding: 7px 10px;
+  font-size: 12px;
+  color: var(--ink-dim);
+}
+.htrow:not(:last-child) { border-bottom: 1px solid var(--stroke); }
+.htrow.head { font-weight: 700; font-size: 10px; letter-spacing: 0.5px; text-transform: uppercase; color: var(--ink-faint); background: rgba(0,0,0,.2); }
+.htcell-em { font-weight: 700; color: var(--ink); }
